@@ -1,0 +1,45 @@
+import React from "react";
+
+// Define the interface for props
+interface NewsCardProps {
+  href: string; // Define href as a string
+  imgSrc: string;
+  imgAlt: string;
+  category: string;
+  postDate: string;
+  title: string;
+}
+
+const NewsCardComponent: React.FC<NewsCardProps> = ({
+  imgSrc,
+  imgAlt,
+  category,
+  postDate,
+  title,
+}) => {
+  return (
+    <div>
+      <div className="flex flex-col items-center bg-white rounded-lg shadow-md overflow-hidden w-[250px] h-full">
+        <div className="w-full">
+          <img
+            className="h-[120px] w-full object-fill"
+            src={imgSrc}
+            alt={imgAlt}
+          />
+        </div>
+
+        <div className="flex flex-col gap-5 p-8">
+          <div className="flex flex-row uppercase tracking-wide text-sm text-indigo-500 font-semibold justify-between">
+            <p className="text-xs">{category}</p>
+            <p className="text-xs text-gray-500">{postDate}</p>
+          </div>
+          <p className="block text-sm leading-normal font-serif text-black">
+            {title}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default NewsCardComponent;
